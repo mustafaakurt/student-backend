@@ -16,12 +16,12 @@ import java.util.List;
 public class StudentController {
     private final IStudentService studentService;
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Student>> getStudents(){
         return new ResponseEntity<>(studentService.getStudents(), HttpStatus.FOUND);
     }
 
-    @PostMapping("/")
+    @PostMapping
     public Student addStudent(@RequestBody Student student){
         return studentService.addStudent(student);
     }
@@ -31,7 +31,7 @@ public class StudentController {
         return studentService.updateStudent(student,id);
     }
 
-    @DeleteMapping("/delete){id}")
+    @DeleteMapping("/delete/{id}")
     public void deleteStudent(@PathVariable Long id){
         studentService.deleteStudent(id);
     }

@@ -50,6 +50,7 @@ public class StudentService implements IStudentService {
         if(!studentRepository.existsById(id)){
             throw new StudentNotFoundException("Sorry, no student found with the Id : " + id);
         }
+        studentRepository.deleteById(id);
     }
 
     private boolean studentAlreadyExist(String email) {
