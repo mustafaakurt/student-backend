@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin("http://localhost:3000")
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor
@@ -36,8 +37,6 @@ public class StudentController {
     public void deleteStudent(@PathVariable Long id) {
         studentService.deleteStudent(id);
     }
-
-
 
     @GetMapping("/student/{id}")
     public ResponseEntity<?> getStudentById(@PathVariable Long id) {
