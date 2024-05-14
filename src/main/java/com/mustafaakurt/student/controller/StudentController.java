@@ -37,8 +37,16 @@ public class StudentController {
         studentService.deleteStudent(id);
     }
 
+
+
     @GetMapping("/student/{id}")
-    public Student getStudentById(@PathVariable Long id) {
-        return studentService.getStudentById(id);
+    public ResponseEntity<?> getStudentById(@PathVariable Long id) {
+        Student student = studentService.getStudentById(id);
+        if (student == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(student);
     }
 }
+
+
